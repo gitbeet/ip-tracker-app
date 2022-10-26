@@ -15,8 +15,8 @@ function App() {
   const [ipAddress, setIpAddress] = useState("8.8.8.8");
   const [coordinates, setCoordinates] = useState("");
   const [data, setData] = useState();
-  const [error, setError] = useState(null);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   useEffect(() => {
     axios
       .get(
@@ -47,7 +47,9 @@ function App() {
 
   function handleSubmit() {
     if (!validateIpAdress(ipAddress)) {
-      setError("Invalid IP Address");
+      setErrorMessage(
+        "The IP address you have entered is invalid.Please try again."
+      );
       setShowErrorModal(true);
       return;
     }
@@ -72,7 +74,7 @@ function App() {
         <Modal
           show={showErrorModal}
           onClose={toggleErrorModal}
-          message="The IP address you have entered is invalid.Please try again."
+          message={errorMessage}
         />
         <Header />
         <SearchComponent

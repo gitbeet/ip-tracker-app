@@ -26,13 +26,9 @@ h1,h2,h3,h4,h5{
   --clr-primary-500 : hsl(244,100%,60%);
   --clr-primary-600 : hsl(234,100%,64%);
   --clr-primary-700 : hsl(230,100%,67%);
-
-
   --clr-very-dark-gray : hsl(0, 0%, 17%);
   --clr-dark-gray : hsl(0, 0%, 59%);
-
   --clr-neutral-900 : hsl(0,0%,100%);
-
   --border-radius : 12px;
   --box-shadow :  rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -49,7 +45,6 @@ h1,h2,h3,h4,h5{
   color: white;
 }
 
-
 .button-primary{
   border:none;
   border-radius: .4rem;
@@ -64,7 +59,7 @@ h1,h2,h3,h4,h5{
   background: linear-gradient(90deg, rgba(91,46,187,1) 1%, rgba(46,73,180,1) 25%, rgb(19, 128, 218) 47%, rgba(46,73,180,1) 75%, rgba(72,43,189,1) 100%);
   background-size: 450% ;
   background-position: left;  
-  transition: 300ms background-position ease-in-out;  
+  transition: 400ms background-position ease-in-out;  
 }
 
 button:hover{
