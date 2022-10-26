@@ -61,7 +61,7 @@ h1,h2,h3,h4,h5{
   text-decoration: none;
   border-radius: 0.25em;  
   background: rgb(91,46,187);
-  background: linear-gradient(90deg, rgba(91,46,187,1) 1%, rgba(46,73,180,1) 25%, rgba(31,186,255,1) 47%, rgba(46,73,180,1) 75%, rgba(72,43,189,1) 100%);
+  background: linear-gradient(90deg, rgba(91,46,187,1) 1%, rgba(46,73,180,1) 25%, rgb(19, 128, 218) 47%, rgba(46,73,180,1) 75%, rgba(72,43,189,1) 100%);
   background-size: 450% ;
   background-position: left;  
   transition: 300ms background-position ease-in-out;  
