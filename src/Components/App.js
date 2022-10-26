@@ -7,11 +7,16 @@ import DataDisplay from "./DataDisplay";
 import Header from "./Header";
 import Background from "./Background";
 import LoadingScreen from "./LoadingScreen";
+import Modal from "./Modal";
+
+const validateIpRegex = /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/;
 
 function App() {
   const [ipAddress, setIpAddress] = useState("8.8.8.8");
   const [coordinates, setCoordinates] = useState("");
   const [data, setData] = useState();
+  const [error, setError] = useState(null);
+  const [showErrorModal, setShowErrorModal] = useState(false);
   useEffect(() => {
     axios
       .get(
@@ -28,11 +33,24 @@ function App() {
       });
   }, []);
 
+  function toggleErrorModal() {
+    setShowErrorModal((prev) => !prev);
+  }
+
   function handleChange(e) {
     setIpAddress(e.target.value);
   }
 
+  function validateIpAdress(ip) {
+    return validateIpRegex.test(ip);
+  }
+
   function handleSubmit() {
+    if (!validateIpAdress(ipAddress)) {
+      setError("Invalid IP Address");
+      setShowErrorModal(true);
+      return;
+    }
     axios
       .get(
         `https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_API_KEY}&ipAddress=${ipAddress}`,
@@ -50,7 +68,12 @@ function App() {
   if (!data) return <LoadingScreen />;
   return (
     <div className="container">
-      <div class="foreground-container">
+      <div className="foreground-container">
+        <Modal
+          show={showErrorModal}
+          onClose={toggleErrorModal}
+          message="The IP address you have entered is invalid.Please try again."
+        />
         <Header />
         <SearchComponent
           handleChange={handleChange}

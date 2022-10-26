@@ -6,8 +6,12 @@ export default function SearchComponent({ handleChange, handleSubmit }) {
   return (
     <div className="search-component">
       <input placeholder="Search IP ..." onChange={handleChange} />
-      <button onClick={handleSubmit}>
-        <img src={iconArrow} alt="search button" />
+      <button className="search-button" onClick={handleSubmit}>
+        <img
+          className="search-button-arrow"
+          src={iconArrow}
+          alt="search button"
+        />
       </button>
     </div>
   );

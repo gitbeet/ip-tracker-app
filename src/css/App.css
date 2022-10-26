@@ -13,16 +13,28 @@ body{
   width: 100%;
 }
 
+#modal{
+  position:relative;
+}
+
+
 h1,h2,h3,h4,h5{
   margin:0;
 }
 
 :root{
+  --clr-primary-500 : hsl(244,100%,60%);
+  --clr-primary-600 : hsl(234,100%,64%);
+  --clr-primary-700 : hsl(230,100%,67%);
+
+
   --clr-very-dark-gray : hsl(0, 0%, 17%);
   --clr-dark-gray : hsl(0, 0%, 59%);
 
+  --clr-neutral-900 : hsl(0,0%,100%);
+
   --border-radius : 12px;
-  --box-shadow : 0 0 7px 5px rgba(0,0,0,.2)
+  --box-shadow :  rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .color-dark-gray{
@@ -35,6 +47,28 @@ h1,h2,h3,h4,h5{
 
 .color-white{
   color: white;
+}
+
+
+.button-primary{
+  border:none;
+  border-radius: .4rem;
+  color: var(--clr-neutral-900);
+  padding : .5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  box-shadow:var(--box-shadow);
+  text-decoration: none;
+  border-radius: 0.25em;  
+  background: rgb(91,46,187);
+  background: linear-gradient(90deg, rgba(91,46,187,1) 1%, rgba(46,73,180,1) 25%, rgba(31,186,255,1) 47%, rgba(46,73,180,1) 75%, rgba(72,43,189,1) 100%);
+  background-size: 450% ;
+  background-position: left;  
+  transition: 300ms background-position ease-in-out;  
+}
+
+button:hover{
+ background-position: right;
 }
 
 
