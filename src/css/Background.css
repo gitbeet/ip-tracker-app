@@ -1,0 +1,14 @@
+.background-image{
+    position:absolute;
+    height: 40vh;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+}
+
+@media (min-width:1440px){
+    .background-image{
+        height: 32vh;
+    }
+}
+
+  
