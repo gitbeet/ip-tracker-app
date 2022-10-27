@@ -3,6 +3,7 @@
     height: 40vh;
     width: 100%;
     box-shadow: var(--box-shadow);
+    /* filter:brightness(.3); */
 }
 
 @media (min-width:1440px){

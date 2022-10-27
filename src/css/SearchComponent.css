@@ -1,10 +1,59 @@
 .search-component{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: min(100% , 600px);
-    height: 3.6rem;
+    height: 4.6rem;
+    z-index: 1;
 }
+
+/* .search-component::after{
+    --border-offset:-.4rem;
+    opacity: 0;
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    top:var( --border-offset);
+    bottom:var( --border-offset);
+    left:var( --border-offset);
+    right:var( --border-offset);   
+    z-index:0 ;
+    border-radius: 15px;
+    background: rgb(112,60,223);
+    background: linear-gradient(31deg, rgba(112,60,223,1) 1%, rgba(87,180,246,1) 12%, rgba(46,73,180,1) 25%, rgba(41,72,207,1) 33%, rgba(71,194,247,1) 56%, rgba(96,54,235,1) 63%, rgba(46,73,180,1) 78%, rgba(42,158,214,1) 88%, rgba(72,43,189,1) 100%);
+    background-size: 300% ;
+    background-position: left;  
+    transition: 400ms opacity ease-in-out;  
+} */
+
+/* .search-component:hover::after,
+.search-component:focus-within::after
+{
+    opacity: 1;
+    animation: hover-animation 10.4s alternate infinite ;
+    box-shadow: 0 0 30px 1px rgb(45, 112, 236),
+                 0 0 10px 1px rgb(104, 46, 180);
+} */
+
+/* 
+@keyframes hover-animation {
+    0%{
+        background-position: center;
+    }
+    33%{
+        background-position: right;
+    }
+    66%{
+        background-position: center;
+    }
+    100%{
+        background-position: left;
+    }
+} */
+
 
 input{
     cursor: pointer;
@@ -38,17 +87,17 @@ input,
     z-index: 1;
     width: 19%;
     border: none;    
-    background-color: black;
-    transition: all .15s ease-in-out;
+    /* border: 3px solid white; */
+    background: rgb(32,29,40);
+    background: linear-gradient(114deg, rgba(32,29,40,1) 0%, rgba(15,13,32,1) 22%, rgba(75,164,251,1) 32%, rgba(44,46,66,1) 44%, rgba(43,46,62,1) 48%, rgba(45,49,59,1) 55%, rgba(63,49,142,1) 62%, rgba(34,38,51,1) 70%, rgba(33,26,61,1) 88%); 
+    background-size: 500% ;
+    background-position: right;  
+    transition: 600ms background-position ease-in-out;  
 }
 
-.search-button:hover .search-button-arrow{
-    animation: arrow-animation .5s linear   alternate;
-
-}
 
 .search-button:hover{
-    background-color: var(--clr-very-dark-gray);
+    background-position: left;
 }
 
 
