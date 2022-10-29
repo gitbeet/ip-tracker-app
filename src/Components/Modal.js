@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import Backdrop from "./Backdrop";
 import "../css/Modal.css";
+import { useDarkMode } from "../context/darkModeContext";
 
 export default function Modal({ show, onClose, message }) {
+  const { darkMode } = useDarkMode();
   const modalRef = useRef();
   useEffect(() => {
     if (!show) return;
@@ -20,7 +22,7 @@ export default function Modal({ show, onClose, message }) {
           }
         }}
         tabIndex={0}
-        className="modal"
+        className={darkMode ? "modal-dark-mode" : "modal"}
       >
         <p className="modal-message">{message}</p>
         <button className="button-primary" onClick={onClose}>

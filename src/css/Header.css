@@ -1,4 +1,21 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
 .header > h2{
     font-weight: 600;
     letter-spacing: .05rem;
+    color: var(--clr-neutral-900);
+    text-align: center;
 }
+
+.header-dark-mode-button{
+    transform: scale(.7);
+    transform-origin: right;
+}
+

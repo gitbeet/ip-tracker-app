@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import "../css/SearchComponent.css";
 import iconArrow from "../images/icon-arrow.svg";
+import { useDarkMode } from "../context/darkModeContext";
 
 function useEnterKey(func, element) {
   const handleEnterKey = useCallback(
@@ -23,11 +24,20 @@ function useEnterKey(func, element) {
 }
 
 export default function SearchComponent({ handleChange, handleSubmit }) {
+  const { darkMode } = useDarkMode();
   const myRef = useRef(null);
   useEnterKey(handleSubmit, myRef.current);
   return (
-    <div ref={myRef} className="search-component">
-      <input autoFocus placeholder="Search IP ..." onChange={handleChange} />
+    <div
+      ref={myRef}
+      className={`search-component${darkMode ? "-dark-mode" : ""}`}
+    >
+      <input
+        className={`search-component-input${darkMode ? "-dark-mode" : ""}`}
+        autoFocus
+        placeholder="Search"
+        onChange={handleChange}
+      />
       <button className="search-button" onClick={handleSubmit}>
         <img
           className="search-button-arrow"

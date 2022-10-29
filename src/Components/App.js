@@ -8,6 +8,7 @@ import Header from "./Header";
 import Background from "./Background";
 import LoadingScreen from "./LoadingScreen";
 import Modal from "./Modal";
+import ZoomControlOverlay from "./ZoomButtons";
 
 const validateIpRegex = /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/;
 
