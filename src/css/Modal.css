@@ -1,38 +1,37 @@
 .modal,
-.modal-dark-mode{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    position: fixed;
-    width: min(90% , 400px);
-    top:20vh;
-    left:50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    padding: 3rem 2rem;
-    border-radius: .5rem;
-    text-align: center;
-    border:1px solid transparent;
-    transition: border .2s ease-in-out;
+.modal-dark-mode {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: fixed;
+  width: min(90%, 400px);
+  top: 20vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: border 0.2s ease-in-out;
 }
 
-
-.modal{
-    background-color: var(--clr-neutral-900);
-    color: var(--clr-neutral-200);
+.modal {
+  background-color: var(--clr-neutral-900);
+  color: var(--clr-neutral-200);
 }
 
-.modal-dark-mode{
-    background-color: var(--clr-neutral-200);
-    color: var(--clr-neutral-900);
-    border:1px solid var(--clr-neutral-400);
+.modal-dark-mode {
+  background-color: var(--clr-neutral-200);
+  color: var(--clr-neutral-900);
+  border: 1px solid var(--clr-neutral-400);
 }
 
-.modal-dark-mode:hover{
-    border:1px solid var(--clr-primary-600);
+.modal-dark-mode:hover {
+  border: 1px solid var(--clr-primary-600);
 }
 
-.modal-message{
-    font-size: 1.1rem;
-    line-height: 140%;
+.modal-message {
+  font-size: 1.1rem;
+  line-height: 140%;
 }

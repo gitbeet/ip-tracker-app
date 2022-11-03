@@ -1,78 +1,73 @@
 .search-component,
-.search-component-dark-mode{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: min(100% , 600px);
-    height: 3.6rem;
-    z-index: 1;
-    transition: all .2s ease-in-out;
+.search-component-dark-mode {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min(100%, 600px);
+  height: 3.6rem;
+  z-index: 1;
+  transition: all 0.2s ease-in-out;
 }
 
-.search-component{
-    border:1px solid transparent;
+.search-component {
+  border: 1px solid transparent;
 }
 
-.search-component-dark-mode{
-    border:1px solid var(--clr-neutral-400);
-    border-radius: var(--border-radius);
+.search-component-dark-mode {
+  border: 1px solid var(--clr-neutral-400);
+  border-radius: var(--border-radius);
 }
 
-.search-component-dark-mode:hover{
-    border:1px solid var(--clr-primary-600);
+.search-component-dark-mode:hover {
+  border: 1px solid var(--clr-primary-600);
 }
 
 .search-component-input,
-.search-component-input-dark-mode{
-    cursor: pointer;
-    text-indent: 1.6rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: var(--clr-very-dark-gray);
-    border: none;
-    width: 100%;
-    border-top-left-radius: var(--border-radius);
-    border-bottom-left-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    z-index: 2;
+.search-component-input-dark-mode {
+  cursor: pointer;
+  text-indent: 1.6rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--clr-very-dark-gray);
+  border: none;
+  width: 100%;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  z-index: 2;
 }
 
-.search-component-input-dark-mode{
-    background-color: var(--clr-neutral-200);
-    color: var(--clr-neutral-900);
+.search-component-input-dark-mode {
+  background-color: var(--clr-neutral-200);
+  color: var(--clr-neutral-900);
 }
 
-.search-component-input-dark-mode::placeholder{
-    color: var(--clr-dark-gray);
+.search-component-input-dark-mode::placeholder {
+  color: var(--clr-dark-gray);
 }
 
-input:focus{
-    outline: none;
+input:focus {
+  outline: none;
 }
 
 input,
-.search-button{
-    height:100%;    
+.search-button {
+  height: 100%;
 }
 
-
-.search-button{
-    cursor: pointer;
-    border-top-right-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    z-index: 1;
-    width: 19%;
-    border: none;    
-    background-color: var(--clr-neutral-300);
-    transition: all .2s ease-in-out;
+.search-button {
+  cursor: pointer;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  z-index: 1;
+  width: 19%;
+  border: none;
+  background-color: var(--clr-neutral-300);
+  transition: all 0.2s ease-in-out;
 }
 
-
-.search-button:hover{
-    background-color: var(--clr-neutral-350);
+.search-button:hover {
+  background-color: var(--clr-neutral-350);
 }
-
-
-
