@@ -2,7 +2,7 @@ import { useDarkMode } from "../context/darkModeContext";
 import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
 import "../css/DarkModeButton.css";
 
-export default function DarkModeButton() {
+const DarkModeButton = (): JSX.Element => {
   const { darkMode, toggleDarkMode } = useDarkMode();
   return (
     <div
@@ -24,4 +24,6 @@ export default function DarkModeButton() {
       ></div>
     </div>
   );
-}
+};
+
+export default DarkModeButton;

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { states } from "../utilities/abbrState";
 import "../css/DataDisplay.css";
 import MinimizeButton from "./MinimizeButton";
 import { useDarkMode } from "../context/darkModeContext";
+import { Data } from "../models";
 
-export default function DataDisplay({ data }) {
+//  REMOVE ANY !!!
+export default function DataDisplay({ data }: { data: Data }) {
   const { darkMode } = useDarkMode();
   const [minimized, setMinimized] = useState(true);
 
@@ -34,11 +36,10 @@ export default function DataDisplay({ data }) {
             className={`data-container-text-medium${
               darkMode ? "-dark-mode" : ""
             }`}
-            pan
+            // pan
           >
             {data.location.city},
-            {(states.find((state) => state[0] === data.location.region) &&
-              states.find((state) => state[0] === data.location.region)[1]) ||
+            {states?.find((state) => state[0] === data.location.region)?.[1] ||
               data.location.region}{" "}
             {data.location.postalCode}
           </div>

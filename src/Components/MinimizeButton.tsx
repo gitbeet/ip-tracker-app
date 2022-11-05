@@ -1,7 +1,13 @@
 import React from "react";
 import { FiMinimize2, FiMaximize2 } from "react-icons/fi";
 
-export default function MinimizeButton({ minimized, onClick }) {
+const MinimizeButton = ({
+  minimized,
+  onClick,
+}: {
+  minimized: boolean;
+  onClick: () => void;
+}) => {
   return (
     <>
       {minimized ? (
@@ -11,4 +17,6 @@ export default function MinimizeButton({ minimized, onClick }) {
       )}
     </>
   );
-}
+};
+
+export default MinimizeButton;

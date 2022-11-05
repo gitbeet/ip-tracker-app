@@ -1,12 +1,16 @@
 import "../css/ZoomButtons.css";
 import { useDarkMode } from "../context/darkModeContext";
 
-export default function ZoomButtons({ zoomIn, zoomOut }) {
+const ZoomButtons = ({
+  setZoom,
+}: {
+  setZoom: React.Dispatch<React.SetStateAction<number>>;
+}) => {
   const { darkMode } = useDarkMode();
   return (
     <div className={`zoom-buttons`}>
       <div
-        onClick={zoomIn}
+        onClick={() => setZoom((prev) => prev + 1)}
         className={
           darkMode
             ? "zoom-button-dark-mode zoom-button-border-dark-mode"
@@ -16,11 +20,13 @@ export default function ZoomButtons({ zoomIn, zoomOut }) {
         +
       </div>
       <div
-        onClick={zoomOut}
+        onClick={() => setZoom((prev) => prev - 1)}
         className={darkMode ? "zoom-button-dark-mode" : "zoom-button"}
       >
         -
       </div>
     </div>
   );
-}
+};
+
+export default ZoomButtons;

@@ -3,8 +3,8 @@ import "../css/SearchComponent.css";
 import iconArrow from "../images/icon-arrow.svg";
 import { useDarkMode } from "../context/darkModeContext";
 
-function useEnterKey(func, element) {
-  const handleEnterKey = useCallback(
+function useEnterKey(func: () => void, element: HTMLElement | null) {
+  const handleEnterKey: (event: KeyboardEvent) => void = useCallback(
     (event) => {
       if (event.key === "Enter") {
         func();
@@ -23,13 +23,19 @@ function useEnterKey(func, element) {
   }, [handleEnterKey, element]);
 }
 
-export default function SearchComponent({ handleChange, handleSubmit }) {
+interface Props {
+  handleChange: (e: React.FormEvent) => void;
+  handleSubmit: () => void;
+}
+
+export default function SearchComponent({ handleChange, handleSubmit }: Props) {
   const { darkMode } = useDarkMode();
-  const myRef = useRef(null);
-  useEnterKey(handleSubmit, myRef.current);
+  const searchComponentRef = useRef<HTMLDivElement>(null);
+
+  useEnterKey(handleSubmit, searchComponentRef.current);
   return (
     <div
-      ref={myRef}
+      ref={searchComponentRef}
       className={`search-component${darkMode ? "-dark-mode" : ""}`}
     >
       <input

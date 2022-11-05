@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  MapContainer,
-  Marker,
-  Popup,
-  TileLayer,
-  useMap,
-  ZoomControl,
-} from "react-leaflet";
+import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
 import "../css/MapComponent.css";
 import "leaflet/dist/leaflet.css";
 import markerIcon from "../markers/markerIcon";
@@ -14,23 +7,29 @@ import { useDarkMode } from "../context/darkModeContext";
 import markerIconDarkMode from "../markers/markerIconDarkMode";
 import ZoomButtons from "./ZoomButtons";
 
-function ChangeMap({ center, zoom }) {
+function ChangeMap({
+  center,
+  zoom,
+}: {
+  center: { lat: number; lng: number };
+  zoom: number;
+}): null {
   const map = useMap();
   map.setView(center, zoom);
 
   return null;
 }
 
-export default function MapComponent({ coordinates }) {
+export default function MapComponent({
+  coordinates,
+}: {
+  coordinates: [number, number];
+}) {
   const { darkMode } = useDarkMode();
-  const [zoom, setZoom] = useState(12);
-
+  const [zoom, setZoom] = useState<number>(12);
   return (
     <>
-      <ZoomButtons
-        zoomOut={() => setZoom((prev) => prev - 1)}
-        zoomIn={() => setZoom((prev) => prev + 1)}
-      />
+      <ZoomButtons setZoom={setZoom} />
       <MapContainer
         center={{ lat: coordinates[0], lng: coordinates[1] }}
         zoomControl={false}
@@ -40,9 +39,6 @@ export default function MapComponent({ coordinates }) {
           center={{ lat: coordinates[0], lng: coordinates[1] }}
           zoom={zoom}
         />
-        {/* <div className="zoom-control">
-        <ZoomControl position="bottomright" />
-      </div> */}
 
         <TileLayer
           key={darkMode ? 2 : 1}

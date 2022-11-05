@@ -3,11 +3,17 @@ import Backdrop from "./Backdrop";
 import "../css/Modal.css";
 import { useDarkMode } from "../context/darkModeContext";
 
-export default function Modal({ show, onClose, message }) {
+interface Props {
+  show: boolean;
+  onClose: () => void;
+  message: string;
+}
+
+const Modal = ({ show, onClose, message }: Props): JSX.Element | null => {
   const { darkMode } = useDarkMode();
-  const modalRef = useRef();
+  const modalRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (!show) return;
+    if (!show || !modalRef.current) return;
     modalRef.current.focus();
   }, [show]);
 
@@ -32,4 +38,6 @@ export default function Modal({ show, onClose, message }) {
       <Backdrop clickFn={onClose} />
     </>
   );
-}
+};
+
+export default Modal;

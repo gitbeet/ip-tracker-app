@@ -1,23 +1,24 @@
 import "../css/App.css";
 import MapComponent from "./MapComponent";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchComponent from "./SearchComponent";
 import DataDisplay from "./DataDisplay";
 import Header from "./Header";
 import Background from "./Background";
 import LoadingScreen from "./LoadingScreen";
 import Modal from "./Modal";
-import ZoomControlOverlay from "./ZoomButtons";
+import { Data } from "../models";
 
-const validateIpRegex = /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/;
+const validateIpRegex: RegExp = /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$/;
 
-function App() {
-  const [ipAddress, setIpAddress] = useState("8.8.8.8");
-  const [coordinates, setCoordinates] = useState("");
-  const [data, setData] = useState();
-  const [showErrorModal, setShowErrorModal] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+const App: React.FC = () => {
+  const [ipAddress, setIpAddress] = useState<string>("8.8.8.8");
+  const [coordinates, setCoordinates] = useState<[number, number] | null>(null);
+  const [data, setData] = useState<Data | null>(null);
+  const [showErrorModal, setShowErrorModal] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  // const apiKey: string = process.env.REACT_APP_API_KEY as string;
   useEffect(() => {
     axios
       .get(
@@ -37,16 +38,18 @@ function App() {
   function toggleErrorModal() {
     setShowErrorModal((prev) => !prev);
   }
-
-  function handleChange(e) {
-    setIpAddress(e.target.value);
+  // ???????????
+  function handleChange(e: React.FormEvent) {
+    const target = e.target as HTMLInputElement;
+    setIpAddress(target.value);
   }
 
-  function validateIpAdress(ip) {
+  function validateIpAdress(ip: string) {
     return validateIpRegex.test(ip);
   }
 
   function handleSubmit() {
+    console.log(ipAddress);
     if (!validateIpAdress(ipAddress)) {
       setErrorMessage(
         "The IP address you have entered is invalid.Please try again."
@@ -67,8 +70,13 @@ function App() {
         console.log([res.data.location.lat, res.data.location.lng]);
       });
   }
-
-  if (!data) return <LoadingScreen />;
+  // if (!data) {
+  //   return <p>loading</p>;
+  // } else {
+  //   return <p>page</p>;
+  // }
+  console.log(data);
+  if (!data || !coordinates) return <LoadingScreen />;
   return (
     <div className="container">
       <div className="foreground-container">
@@ -90,6 +98,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

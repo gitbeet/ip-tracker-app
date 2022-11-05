@@ -4,10 +4,10 @@ import L from "leaflet";
 const markerIconDarkMode = L.icon({
   iconUrl: iconLocation,
   iconRetinaUrl: iconLocation,
-  iconAnchor: null,
-  shadowUrl: null,
-  shadowSize: null,
-  shadowAnchor: null,
+  iconAnchor: undefined,
+  shadowUrl: undefined,
+  shadowSize: undefined,
+  shadowAnchor: undefined,
   iconSize: [30, 37],
   className: "marker-icon",
 });

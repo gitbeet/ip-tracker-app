@@ -1,6 +1,11 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, PropsWithChildren, useContext, useState } from "react";
 
-const darkModeContext = createContext();
+interface AppContextInterface {
+  darkMode: boolean;
+  toggleDarkMode: () => void;
+}
+
+const darkModeContext = createContext<AppContextInterface | null>(null);
 
 export function useDarkMode() {
   const context = useContext(darkModeContext);
@@ -8,7 +13,7 @@ export function useDarkMode() {
   return context;
 }
 
-export default function DarkModeProvider({ children }) {
+const DarkModeProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
 
   function toggleDarkMode() {
@@ -20,4 +25,6 @@ export default function DarkModeProvider({ children }) {
       {children}
     </darkModeContext.Provider>
   );
-}
+};
+
+export default DarkModeProvider;
